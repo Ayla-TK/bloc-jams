@@ -1,3 +1,9 @@
+*, *::before, *::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:border-box; 
+}
+
 html {
   height: 100%; /* makes sure our HTML takes up 100% of the browser window */
   font-size: 100%;
@@ -9,69 +15,93 @@ body {
   min-height: 100%;         /*says the high of the body must be, at minimum, 100% of the window */
 }
 
-body.landing {
-  background-color: rgb(58,23,63); /*sets the background color to an RGB value*/
-}
-
 .navbar {
+  position: relative;
   padding: 0.5rem;
-  background-color: rgb(101,18,95);
+  background-color: rgba(101,18,95,0.5);
+  z-index: 1;
 }
 
 .navbar .logo {
   position: relative;
   left: 2rem;
+  cursor: pointer; /*produces the finger-pointer icon when you hover */
 }
 
-.hero-content {
-  position: relative;
-  min-height: 600px; 
-  background-image: url(../assets/images/bloc_jams_bg.jpg);
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: center center;
-}
-
-.hero-content .hero-title {
-  position: absolute;
-  top: 40%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(50%);
-  width: 100%;
-  text-align: center;
-  font-size: 4rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.5 rem;
-  text-shadow: 1px 1px 0px rgb(58,23,63);
-}
-
-.selling-points {
-  position: relative;
+.navbar .links-container {
   display: table;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 0;
+  height: 100px;
+  color: white;
+  text-decoration: none;
 }
 
-.point {
+.links-container .navbar-link {
   display: table-cell;
   position: relative;
-  width: 33.3%;
-  padding: 2rem;
-  text-align: center;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  vertical-align: middle;
+  color: white;
+  font-size: 0.625rem;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+     cursor: pointer;
 }
+  
+.links-container .navbar-link:hover {
+     color: rgb(233,50,117);
+ }
 
-.point .point-title {
-  font-size: 1.25rem;
-}
-
-.ion-music-note,
-.ion-radio-waves,
-.ion-iphone {
+.links-container .navbar-link:active {
   color: rgb(233,50,117);
-  font-size: 5rem;
+  background-color: white;
+}
+  background-color: white;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 64rem;
+}
+
+/* medium and small screens (640px) */
+@media (min-width: 640px) {
+  html {font-size: 112%;}
+
+  .column {
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .column.full {width: 100%;}
+  .column.two-thirds {width: 66.7%;}
+  .column.half{width: 50%;}
+  .column.third{width: 33.3%;}
+  .column.fourth{width: 25%;}
+  .column.flow-opposite {float: right;}
+}
+
+/* large screens (1024px) */
+@media (min-width: 1024px) {
+  html {font-size: 120%;}
+}
+
+.clearfix::before,
+
+.clearfix::after {
+  content: " ";
+  
+  display: table;
+  
+}
+
+.clearfix::after {
+  clear:both;
 }
