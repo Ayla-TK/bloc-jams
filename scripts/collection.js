@@ -16,11 +16,11 @@ var collectionItemTemplate =
 
 window.onload = function() {
   // #1
-  var collectionConatiner = document.getElementsByClassName('albumer-covers')[0];
+  var collectionContainer = document.getElementsByClassName('album-covers')[0];
   // #2 
-  collectionConatiner.innerHTML = '';
+  collectionContainer.innerHTML = '';
   // #3
   for (var i= 0; i < 12; i++) {
-      collectionConatiner.innerHTML += collectionItemTemplate;
+      collectionContainer.innerHTML += collectionItemTemplate;
   }
 }
