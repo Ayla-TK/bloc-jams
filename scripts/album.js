@@ -4,7 +4,7 @@
      artist: 'Pablo Picasso',
      label: 'Cubism',
      year: '1881',
-     albumArtUrl: 'assets/images/album_covers/02.png',
+     albumArtUrl: 'assets/images/album_covers/01.png',
      songs: [
          { title: 'Blue', duration: '4:26' },
          { title: 'Green', duration: '3:14' },
@@ -50,7 +50,7 @@ var albumEnterprise = {
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
-      + '  <td class="song-item-number">' + songNumber + '</td>'
+      + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
       + '  <td class="song-item-duration">' + songLength + '</td>'
       + '</tr>'
@@ -70,19 +70,53 @@ var setCurrentAlbum = function(album) {
   albumTitle.firstChild.nodeValue = album.title;
   albumArtist.firstChild.nodeValue = album.artist;
   albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
-  albumImage.src = album.albumArtUrl;
   
   albumSongList.innerHTML = '';
-  
-  
   
   for (var i = 0; i < album.songs.length; i++) {
     albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
   }
 };
 
+//Change the Song Number to the Pause Button
+
+var findParentByClassName = function(element, targetClass) {
+  if (element) {
+    var currentParent = element.parentElement;
+    while (currentParent.className != targetClass && curentParent.className !== null) {
+      currentParent = currentParent.parentElement;
+    }
+    return currentParent;
+  }
+}
+
+//getSongItem() Method
+
+var getSongItem = function(element) {
+  switch (element.className)
+
+var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+
+var songRows = document.getElementsByClassName('album-view-song-item');
+
+var playButtonTemplate = '<a class= "album-song-button"><span class="ion-play"></span></a>';
+
 window.onload = function() {
   setCurrentAlbum(albumPicasso);
+  
+  songListContainer.addEventListener('mouseover', function(event){
+ 
+    if (event.target.parentElement.className=== 'album-view-song-item') {
+       event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+    }
+  });
+  
+  for (var i=0; i < songRows.length; i++) {
+    songRows[i].addEventListener('mouseleave', function(event){
+      this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+    });
+  }
+  
   
   var albums = [albumPicasso, albumMarconi, albumEnterprise];
   var index = 0;
