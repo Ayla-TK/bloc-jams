@@ -70,7 +70,7 @@ var setCurrentAlbum = function(album) {
   albumTitle.firstChild.nodeValue = album.title;
   albumArtist.firstChild.nodeValue = album.artist;
   albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
-  
+  albumImage.setAttribute('src', album.albumArtUrl);
   albumSongList.innerHTML = '';
   
   for (var i = 0; i < album.songs.length; i++) {
