@@ -71,7 +71,7 @@
 }
 
 .player-bar .currently-playing .artist-name {
-  bottom: 1.1 rem;
+  bottom: 1.1rem;
 }
 
 .player-bar .current-playing .artist-song-mobile{
@@ -187,4 +187,3 @@
          display: block;
      }
  }
-

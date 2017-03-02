@@ -44,13 +44,14 @@ var albumEnterprise = {
   ]
 };
 
- var createSongRow = function (songNumber, songName, songLength) {
+ var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
       + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
       + '  <td class="song-item-duration">' + songLength + '</td>'
-      + '</tr>' ;
+      + '</tr>'
+      ;
  
      return template;
  };
@@ -112,16 +113,15 @@ var getSongItem = function(element) {
 
 var clickHandler = function(targetElement) {
   var songItem = getSongItem(targetElement);
-  
   if (currentlyPlayingSong === null) {
     songItem.innerHTML = pauseButtonTemplate;
     currentlyPlayingSong = songItem.getAttributre('data-song-number');
-  }
-  else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
+    
+  } else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')){
     songItem.innerHTML = playButtonTemplate;
     currentlyPlayingSong = null;
   
-  } else if (currentlyPlayingSong !== songItem.getAttribute('dat-song-number')) {
+  } else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
     var currentlyPlayingSongElement = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]');
       currentlyPlayingSongElement.innerHTML = currentlyPlayingSongElement.getAttribute('data-song-number');
          songItem.innerHTML = pauseButtonTemplate;
