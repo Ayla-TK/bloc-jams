@@ -53,7 +53,7 @@ var albumEnterprise = {
       + '</tr>'
       ;
  
-     var $row = $(template};
+     var $row = $(template);
     
      var clickHandler = function() {
          var songNumber = $(this).attr('data-song-number');
@@ -73,7 +73,7 @@ var albumEnterprise = {
 		currentlyPlayingSong = null;
 	}
 };
-     };
+    
                   
     var onHover = function(event) {
         var songNumberCell = $(this).find('.song-item-number');
@@ -140,11 +140,10 @@ $(document).ready(function() {
   var albums = [albumPicasso, albumMarconi, albumEnterprise];
   var index = 0;
 
-  albumImage.addEventListener('click', function(event) {
+  $('.album-cover-art').click(function() {
     setCurrentAlbum(albums[index]);
     index ++;
     if (index == albums.length) {
       index = 0;
     }
   });
-};
