@@ -27,7 +27,7 @@
   min-height: 100%;
 }
 
-.player bar .control-group {
+.player-bar .control-group {
   display: table-cell;
   vertical-align: middle;
 }
