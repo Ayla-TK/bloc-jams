@@ -128,6 +128,7 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 var playerBarPlayButton = '<span class="ion-play"></span>';
  var playerBarPauseButton = '<span class="ion-pause"></span>';
 
+
 var currentAlbum = null;
 var currentlyPlayingSongNumber = null;
 var currentSongFromAlbum = null;
@@ -135,12 +136,22 @@ var currentSoundFile = null;
 var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
+var $playerBarControls = $('.main-controls .play-pause');
+
 
 
 $(document).ready(function() {
   setCurrentAlbum(albumPicasso);
   $previousButton.click(prevSong);
   $nextButton.click(nextSong);
+  $playerBarControls.on("click", togglePlayFromPlayerBar()) {
+      if (currentSoundFile == null && playerBarPlayButton.onclick) {     getSongNumberCell = $(this).html(pauseButtonTemplate);
+          currentSoundFile.play();
+    } if (currentSoundFile && playerBarPauseButton.onclick) {
+          getSongNumberCell = $(this).html(playButtonTemplate);
+          currentSoundFile.pause()
+    } 
+      }  
   });
   
   var album = [albumPicasso, albumMarconi];
