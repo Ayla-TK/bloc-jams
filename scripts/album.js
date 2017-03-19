@@ -72,7 +72,8 @@ var createSongRow = function(songNumber, songName, songLength) {
                   
     var onHover = function(event) {
         var songNumberCell = $(this).find('.song-item-number');
-        var songNumber = parseInt(songNumberCell.attr('data-song-number'));
+        var songNumber = 
+            (songNumberCell.attr('data-song-number'));
 
         if (songNumber !== currentlyPlayingSongNumber) {
             songNumberCell.html(playButtonTemplate);
@@ -93,7 +94,7 @@ var createSongRow = function(songNumber, songName, songLength) {
    
 
 var setCurrentAlbum = function (album) {
- 
+  currentAlbum = album;
   var $albumTitle = $('.album-view-title');
   var $albumArtist = $('.album-view-artist');
   var $albumReleaseInfo = $('.album-view-release-info');
