@@ -138,12 +138,12 @@ var updateSeekBarWhileSongPlays = function() {
  };
 
 var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
-  var offsetxPercent = seekBarFillRatio * 100;
+  var offsetXPercent = seekBarFillRatio * 100;
   
-  offsetxPercent = Math.max(0, offsetXpercent);
-  offsetxPercent = Math.min (100, offsetxPercent);
+  offsetXPercent = Math.max(0, offsetXPercent);
+  offsetXPercent = Math.min (100, offsetXPercent);
   
-  var percentageString = offsetxPercent + '%';
+  var percentageString = offsetXPercent + '%';
   $seekBar.find('.fill').width(percentageString);
   $seekBar.find('.thumb').css({left: percentageString});
 };
