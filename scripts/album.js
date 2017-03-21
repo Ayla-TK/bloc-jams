@@ -124,6 +124,23 @@ var setCurrentAlbum = function (album) {
   }
 };
 
+var setCurrentTimeInPlayerBar = function (currentTime) {
+      currentTime = $('.current-time').text(getTime());
+};
+
+var setTotalTimeInPlayerBar = function (totalTime) {
+      totalTime = $('.total-Time').text(getDuration());
+};
+  
+var filterTimeCode = function (timeInSeconds) {
+  timeInSeconds = parseFloat(songs.duration);
+  var minutes = Math.floor(songs.duration/ 60);
+  var seconds = (songs.duration - minutes * 60);
+  return minutes + ":" + seconds;
+};
+
+
+
 var updateSeekBarWhileSongPlays = function() {
      if (currentSoundFile) {
          // #10
@@ -131,10 +148,16 @@ var updateSeekBarWhileSongPlays = function() {
              // #11
              var seekBarFillRatio = this.getTime() / this.getDuration();
              var $seekBar = $('.seek-control .seek-bar');
- 
-             updateSeekPercentage($seekBar, seekBarFillRatio);
+            
+          updateSeekPercentage($seekBar, seekBarFillRatio);
+          setCurrentTimeInPlayerBar(currentTime);
+          setTotalTimeInPlayerBar(totalTime);
+          
          });
+       
+         
      }
+   
  };
 
 var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
@@ -233,6 +256,7 @@ $(document).ready(function() {
       index = 0;
     }
   });
+});
  
 
 var nextSong = function () {
