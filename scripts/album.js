@@ -232,7 +232,8 @@ $(document).ready(function() {
     if (index == albums.length) {
       index = 0;
     }
-  });
+  })
+});
  
 
 var nextSong = function () {
