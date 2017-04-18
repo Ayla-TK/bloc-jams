@@ -24,7 +24,7 @@ var setVolume = function(volume) {
  }
 
 var getSongNumberCell = function (number) {
-  return $('.song-item-number[data-song-number=" ' + number + '"]');
+  return $('.song-item-number[data-song-number="' + number + '"]');
 };
 
 var createSongRow = function(songNumber, songName, songLength) {
@@ -303,6 +303,7 @@ var nextSong = function () {
   $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.title);
   $('.main-controls .play-pause').html(playerBarPauseButton);
 
+    //start here with debugging
     var lastSongNum = getLastSongNum(currentSongIndex);
     var $nextSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
     var $lastSongNumCell = getSongNumberCell(lastSongNum);
@@ -341,10 +342,10 @@ if (currentSongIndex < 0) {
 
     var lastSongNum = getLastSongNum (currentSongIndex);
     var $prevSongNumCell = getSongNumberCell(currentlyPlayingSongNumber);
-    var $lastSongNumCell = getSongNumberCell(getLastSongNum);
+    var $lastSongNumCell = getSongNumberCell(lastSongNum);
 
     $prevSongNumCell.html(pauseButtonTemplate);
-    $lastSongNumCell.html(lastSongNumber);
+    $lastSongNumCell.html(lastSongNum);
 
 };
 
